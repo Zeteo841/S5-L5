@@ -1,0 +1,41 @@
+
+
+1)NFS (Network File System):
+-Vulnerabilita': permette di accedere alle condividioni NFS non configurate correttamente dando la possibilita di accedere
+a dati sensibili.
+-porte coinvolte: 111 e 2049
+-file contenenti la soluzione: 2049-deny-all.png,2049-noforkali.png,2049-allow-onlyparrot.png, parrot-2049.png
+lo scopo e' renderle accessibili solo esclusivamente per ip definiti (in questo caso ho scelto parrot), e bloccare invece l'accesso a tutti gli altri ip.
+
+
+2)rexecd Service Detection:
+-Vulnerabilita': permette l'esecuzioni di comandi esposti 
+-porta coinvolta: 512 
+-file contenenti la soluzione:rexecd-service-detections.png
+lo scopo e' disattivare il servizio rexecd perche e' una vulnerabilita troppo alta, quindi renderlo un commento, risolve il problema
+
+
+3)VNC (Virtual Network Computing):
+-Vulnerabilita': permette il controllo remoto, se ha un password debole (tipo password come visto dal brute force di nessus)
+-porta coinvolta: 5900
+-file contenenti la soluzione: password-modificata-5900.png, password-modificata-kali-5900.png
+lo scopo e'cambiare la password e renderla piu difficile, anche se ha un massimo di 8 caratteri... in questo caso ho messo come password 'diversa' e ho tentato l'accesso con password
+
+
+4)Bind Shell Backdoor Detection:
+-Vulnerabilita': consente di aprire una shell remota, da l'accesso completo al sistema.
+-porta coinvolta: 1524
+-file contenente la soluzione: 1524-kali.png
+lo scopo e' trovare il processo della porta, killarlo e filtrare la porta tramite il l'ufw firewall.
+
+
+BONUS:
+Attivare il firewall ufw e/o iptable e/o pfsense, e' letteralmente un trucco perche' basta attivare i sistemi deny o reject o block per rendere le porte filtrate o impedire a determinati ip di connettersi e semplificarsi la vita.
+Addirittura possiamo dire che molti servizi potrebbero essere inutili e basterebbe bloccarli direttamente per risolvere il problema.
+Ma lo scopo di questo lavoro e' imparare il piu' possibile usando piu metodi differenti, per conoscere e comprendere il funzionamento e l'utilita' di piu' porte possibili, percio', come citato
+nella traccia, ho usato poco quei tipi di firewall, ho aggiunto dei file addiruttura per capire quanto e' facile.
+File:trucco.png ufw-firewall.png
+
+Infine ho condiviso lo stesso il pdf per dimostrare l'utilizzo di nessus.
+file:metasploitable2_qy5gwp.pdf
+
